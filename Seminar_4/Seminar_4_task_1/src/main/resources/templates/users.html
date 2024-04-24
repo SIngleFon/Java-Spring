@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Accounts</h1>
+<style>
+    /* Стилизация таблицы */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+        table-layout: fixed; /* Делаем таблицу фиксированной */
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    /* Скрытая ячейка для пароля */
+    .password {
+        display: none;
+    }
+
+    /* Стилизация кнопки */
+    .password-button {
+        padding: 5px 10px;
+        border: none;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    /* При наведении на кнопку */
+    .password-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<table>
+    <colgroup> <!-- Группа для задания ширины каждой колонки -->
+        <col style="width: 25%;"> <!-- Домен -->
+        <col style="width: 25%;"> <!-- Логин -->
+        <col style="width: 50%;"> <!-- Пароль -->
+    </colgroup>
+    <tr>
+        <th>Domain</th>
+        <th>Login</th>
+        <th>Password</th>
+    </tr>
+    <tr th:each="p: ${users}" >
+        <td th:text="${p.domain}"></td>
+        <td th:text="${p.login}"></td>
+        <td>
+            <!-- Hidden password field -->
+            <span class="password" th:text="${p.password}" style="display:none;"></span>
+            <!-- Button to show password -->
+            <button onclick="togglePassword(this)">Show Password</button>
+        </td>
+    </tr>
+</table>
+
+<script>
+    function togglePassword(button) {
+        // Find the password element within the same row
+        var passwordElement = button.parentElement.querySelector('.password');
+        if (passwordElement) {
+            // Toggle visibility of the password element
+            if (passwordElement.style.display === 'none') {
+                passwordElement.style.display = 'inline';
+                button.textContent = 'Hide Password';
+            } else {
+                passwordElement.style.display = 'none';
+                button.textContent = 'Show Password';
+            }
+        }
+    }
+</script>
+<style>
+    /* Общие стили */
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Стили для каждого блока формы */
+    .form-block {
+        margin-bottom: 20px; /* Отступ между блоками */
+    }
+
+    /* Стили для заголовка формы */
+    h2 {
+        margin-bottom: 10px; /* Отступ снизу */
+    }
+
+    /* Стили для формы ввода */
+    form {
+        margin-bottom: 20px; /* Отступ снизу */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 8px; /* Внутренний отступ */
+        margin-bottom: 10px; /* Отступ снизу */
+        border: 1px solid #ccc; /* Граница поля */
+        border-radius: 5px; /* Скругление углов */
+        box-sizing: border-box; /* Учитываем границы и отступы внутри поля */
+        width: 100%; /* Полное заполнение ширины родительского блока */
+    }
+
+    /* Стили для кнопок */
+    button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    /* При наведении на кнопку */
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<h2>Add account</h2>
+<form action="/users" method="post">
+    Domain: <input type="text" name="domain"><br />
+    Login: <input type="text" name="login"><br />
+    Password: <input type="password" name="password" id="passwordField"><br />
+    <button type="button" id="showPasswordButton">Show Password</button>
+    <button type="submit">Add account</button>
+</form>
+
+<script>
+    document.getElementById("showPasswordButton").addEventListener("click", function() {
+        var passwordField = document.getElementById("passwordField");
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            this.textContent = "Hide Password";
+        } else {
+            passwordField.type = "password";
+            this.textContent = "Show Password";
+        }
+    });
+</script>
+</body>
+</html>
