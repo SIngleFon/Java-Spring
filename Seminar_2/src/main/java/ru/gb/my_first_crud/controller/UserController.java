@@ -1,5 +1,7 @@
 package ru.gb.my_first_crud.controller;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,18 +13,15 @@ import ru.gb.my_first_crud.service.UserService;
 import java.util.List;
 
 @Controller
+@Log
+@AllArgsConstructor
 public class UserController {
-
     private UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping("/users")
     public String findAll(Model model){
         List<User> users = userService.findAll();
-
+        log.info("Find user");
         model.addAttribute("users", users);
         return "user-list";
         //return "home.html";
@@ -35,6 +34,7 @@ public class UserController {
 
     @PostMapping("/user-create")
     public String createUser(User user){
+        log.info("User added: "+user);
         userService.saveUser(user);
         return "redirect:/users";
     }
@@ -42,12 +42,14 @@ public class UserController {
     @GetMapping("user-delete/{id}")
     public String deleteUser(@PathVariable("id") int id){
         userService.deleteById(id);
+        log.info("User with ID: "+id +" deleted!");
         return "redirect:/users";
     }
 
     @GetMapping("/user-update/{id}")
     public String updateUserForm(@PathVariable("id") int id, Model model) {
         User user = userService.findById(id);
+        log.info("User updated");
         model.addAttribute("user", user);
         return "user-update";
     }
@@ -55,6 +57,7 @@ public class UserController {
     // Обновление пользователя
     @PostMapping("/user-update")
     public String updateUser(User user) {
+        log.info("User updated");
         userService.updateUser(user);
         return "redirect:/users";
     }
