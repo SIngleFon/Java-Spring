@@ -12,7 +12,14 @@
         <option value="$PROJECT_DIR$/Seminar_5/Seminar_5_example2/Java_Spring_Seminar_5-main/pom.xml" />
         <option value="$PROJECT_DIR$/Seminar_5/Seminar_5_HW/pom.xml" />
         <option value="$PROJECT_DIR$/Seminar_5/Seminar_5_example/pom.xml" />
+        <option value="$PROJECT_DIR$/Seminar_6/Seminar_6_HW/pom.xml" />
+        <option value="$PROJECT_DIR$/Seminar_6/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/Seminar_6/Seminar_6_HW/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
