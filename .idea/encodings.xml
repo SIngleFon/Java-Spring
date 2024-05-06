@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/RickAndMorti/example4sem6_rikky_and_morty_rest/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Seminar_1/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Seminar_1/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Seminar_2/src/main/java" charset="UTF-8" />
@@ -11,5 +12,6 @@
     <file url="file://$PROJECT_DIR$/Seminar_5/Seminar_5_example2/Java_Spring_Seminar_5-main/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Seminar_6/Seminar_6_HW/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Seminar_6/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Seminar_7/src/main/java" charset="UTF-8" />
   </component>
 </project>
