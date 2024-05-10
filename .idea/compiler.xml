@@ -14,6 +14,7 @@
         <module name="example_2_seminar_5" />
         <module name="Seminar_1" />
         <module name="Seminar_5_example" />
+        <module name="Seminar_8" />
         <module name="Seminar_6" />
         <module name="Seminar_7" />
       </profile>
@@ -33,6 +34,7 @@
       <module name="Seminar_5_example" options="-parameters" />
       <module name="Seminar_6" options="-parameters" />
       <module name="Seminar_7" options="-parameters" />
+      <module name="Seminar_8" options="-parameters" />
       <module name="example4sem6_rikky_and_morty_rest" options="-parameters" />
       <module name="example_2_seminar_5" options="-parameters" />
     </option>
