@@ -17,11 +17,17 @@
         <option value="$PROJECT_DIR$/RickAndMorti/example4sem6_rikky_and_morty_rest/pom.xml" />
         <option value="$PROJECT_DIR$/Seminar_7/pom.xml" />
         <option value="$PROJECT_DIR$/Seminar_8/pom.xml" />
+        <option value="$PROJECT_DIR$/Seminar_9/pom.xml" />
+        <option value="$PROJECT_DIR$/Seminar_9/APIGateWay/pom.xml" />
+        <option value="$PROJECT_DIR$/Seminar_9/eurekaServer/pom.xml" />
+        <option value="$PROJECT_DIR$/Seminar_8/APIGateWay/pom.xml" />
+        <option value="$PROJECT_DIR$/Seminar_8/eurekaServer/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/Seminar_6/Seminar_6_HW/pom.xml" />
+        <option value="$PROJECT_DIR$/Seminar_9/pom.xml" />
       </set>
     </option>
   </component>

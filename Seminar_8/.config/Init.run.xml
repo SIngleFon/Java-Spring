@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Init" type="CompoundRunConfigurationType">
+    <toRun name="EurekaServerApplication" type="Application" />
+    <toRun name="ApiGateWayApplication" type="Application" />
+    <toRun name="Seminar8Application" type="Application" />
+    <method v="2" />
+  </configuration>
+</component>
