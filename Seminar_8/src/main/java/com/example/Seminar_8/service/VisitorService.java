@@ -1,6 +1,7 @@
 package com.example.Seminar_8.service;
 
 import com.example.Seminar_8.aspect.TrackUserAction;
+import com.example.Seminar_8.exception.AccountNotFoundException;
 import com.example.Seminar_8.model.Visitor;
 import com.example.Seminar_8.repository.VisitorRepository;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,6 @@ public class VisitorService {
 
     @TrackUserAction
     public Visitor getVisitorById(Long id){
-        return repository.findById(id).orElseThrow(null);
+        return repository.findById(id).orElseThrow(AccountNotFoundException::new);
     }
 }
