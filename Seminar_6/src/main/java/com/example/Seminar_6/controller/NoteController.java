@@ -1,5 +1,6 @@
 package com.example.Seminar_6.controller;
 
+import com.example.Seminar_6.service.FileGateWay;
 import com.example.Seminar_6.service.NoteServiceInterface;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Metrics;
@@ -15,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/notes")
 public class NoteController {
+    private final FileGateWay fileGateWay;
 
     private final Counter addNoteCounter = Metrics.counter("add_note_count");
 
@@ -29,6 +31,7 @@ public class NoteController {
     @PostMapping
     public ResponseEntity<Note> createNote(@RequestBody Note note){
         addNoteCounter.increment();
+        fileGateWay.writeToFile(note.getTitle()+".txt", note.toString());
         return new ResponseEntity<>(service.addNote(note), HttpStatus.CREATED);
     }
 
