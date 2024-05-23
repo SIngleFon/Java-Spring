@@ -1,6 +1,8 @@
 package com.example.Seminar_6.controller;
 
 import com.example.Seminar_6.service.NoteServiceInterface;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.Metrics;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,10 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/notes")
 public class NoteController {
+
+    private final Counter addNoteCounter = Metrics.counter("add_note_count");
+
+
     private final NoteServiceInterface service;
 
     @GetMapping
@@ -22,6 +28,7 @@ public class NoteController {
 
     @PostMapping
     public ResponseEntity<Note> createNote(@RequestBody Note note){
+        addNoteCounter.increment();
         return new ResponseEntity<>(service.addNote(note), HttpStatus.CREATED);
     }
 
